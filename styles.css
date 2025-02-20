@@ -225,9 +225,9 @@ header {
   background: var(--teal);
   list-style-type: none;
   right: -1280%;
-  -webkit-transition: left 0.3sease;
+  -webkit-transition: left 0.3s ease;
   -o-transition: left 0.3s ease;
-  transition: left 0.3sease;
+  transition: left 0.3s ease;
 }
 
 #menu li {
