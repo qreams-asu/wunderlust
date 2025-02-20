@@ -1,0 +1,661 @@
+/* Quincy Reams
+*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+  
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#skip, .sr-only{
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  }
+  
+/*---------ROOT------------------*/
+
+:root {
+  --yellow: #f6d64a;
+  --teal: #55bcd5;
+  --purple: #9b26b0;
+  --blue: #499bd2;
+  --dark-gray: #222222;
+  --light-gray: #eaeaea;
+  --white:#ffffff;
+  --black:#000000;
+  --input-border: var(--purple);
+  --input-focus-h: 245;
+  --input-focus-s: 100%;
+  --input-focus-l: 42%;
+  --form-control-color: var(--purple);
+  --select-border: var(--purple);
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+
+/*----------------STYLES----------------*/
+h1, h2, h3 {
+    font-family: "Molle", serif;
+}
+h4, p, q, small, nav, button, form {
+    font-family: "Montserrat", sans-serif;
+}
+h1{
+	font-size: 3em;
+}
+h2{
+	font-size: 2.25em;
+}
+h3{
+	font-size: 2em;
+}
+h4 {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+p, q { 
+  line-height: 1.5rem;
+}
+
+header {
+  background-image: linear-gradient(var(--teal), white);
+}
+
+/*--------------RESPONSIVE-----------------*/
+
+
+@media screen and (max-width: 480px){
+  nav {
+    grid-column: 3;
+    grid-row: 1;
+    margin-top: .75rem;
+    margin-left: 70%;
+  }
+
+/* --------------- HAMBURGER MENU-------------------*/
+
+#menuToggle {
+  display: block;
+  position: relative; 
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+}
+
+#menuToggle a {
+  text-decoration: none;
+  color: var(--black);
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover {
+  color: var(--yellow);
+}
+
+
+/* The hamburger button hidden inside an input element */
+#menuToggle input {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -7px;
+  left: -5px;  
+  padding: 0;
+  cursor: pointer;  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */  
+  -webkit-touch-callout: none;
+}
+
+#menuToggle label {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+#menuToggle label span {
+  display: none;
+}
+
+/*
+ * Hamburger
+ */
+#menuToggle label div {
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin-bottom: 6px;
+  position: relative;
+  background: var(--black);
+  border-radius: 3px;  
+  z-index: 1;  
+  -webkit-transform-origin: 4px 0px;  
+      -ms-transform-origin: 4px 0px;  
+          transform-origin: 4px 0px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+#menuToggle label div:first-child {
+  -webkit-transform-origin: 0% 100%;
+      -ms-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+}
+
+#menuToggle label div:nth-child(2) {
+    -webkit-transform-origin: 0% 0%;
+      -ms-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+}
+
+/* 
+ * Change the color of the hamburger when toggled
+ */
+#menuToggle input:checked + label div {
+  background: #232323;
+}
+
+/*
+ * Use absolute positioning to place the menu off-screen
+ */
+#menu {
+  position: absolute;
+  width: 390px;
+  margin: -100px 0 0 -980%;
+  padding-top: 125px;
+  background: var(--teal);
+  list-style-type: none;
+  right: -1280%;
+  -webkit-transition: left 0.3sease;
+  -o-transition: left 0.3s ease;
+  transition: left 0.3sease;
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+  text-align: center;
+  margin: 1rem 0;
+  color: var(--black);
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 0.25rem;
+}
+
+/*
+ * Slide the menu in from left when the input is checked
+ */
+#menuToggle input:checked ~ ul {
+  left: 0;
+}
+}
+/*-------------------------------------*/
+
+body{
+  max-width: 100%;
+}
+header {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    padding: 1.25rem;
+    overflow: hidden;
+
+}
+header img {max-width: 150px;
+  }
+h1{
+  grid-column: 1/4;
+}
+header p{
+  grid-column: 1/4;
+  padding-top: .5rem;
+}
+
+main h2, main p{
+    padding: .5rem 1.25rem 0rem 1.25rem;
+}
+#img-grid{
+  padding-top: 1rem;
+}
+#img-grid img{
+  max-width: 100%;
+  min-width: 100%;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+#plan{
+  background-color: var(--yellow);
+  padding: 1.25rem;
+
+}
+#plan div{
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: center;
+}
+#plan section{
+  width: 355px;
+  height: 355px;
+  margin: 1rem;
+  border: 5px solid var(--white);
+  border-radius: 35px;
+  background-color: var(--teal);
+  text-align: center;
+}
+#plan h4, #plan img{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+#testimonials{
+  padding: 1.25rem;
+}
+#testimonials section{
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+#about{
+  padding: 1.25rem;
+  background-color: var(--blue);
+}
+#about img{
+  max-width: 100%;
+}
+#about div {
+display: flex;
+flex-flow: wrap;
+align-items: center;
+justify-content: center;
+}
+#about section{
+  max-width: 45%;
+  max-height: auto;
+  text-align: center;
+  padding: 1rem;
+  }
+#contact {
+  padding: 1.25rem;
+}
+.form-required{
+  font-size: 12pt;
+  font-family: "Montserrat", sans-serif;
+}
+.required {
+  color: red;
+}
+footer{
+  padding: 1.25rem;
+  background-color: var(--light-gray);
+  text-align: center;
+}
+footer p{
+  padding-bottom: 1rem;
+}
+input {
+  font-size: 16px;
+  font-size: max(16px, 1em);
+  font-family: inherit;
+  padding: 0.25em 0.5em;
+  background-color: #fff;
+  border: 2px solid var(--input-border);
+  border-radius: 4px;
+  width: 100%;
+  height: 50px;
+}
+.input:not(textarea) {
+  line-height: 1;
+  height: 2.25rem;
+}
+
+.radio-label {
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+}
+input[type="radio"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: var(--purple);
+  width: 2em;
+  height: 2em;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+input[type="radio"]::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+}
+.radio-label + .radio-label {
+  margin-top: 1em;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+}
+
+.custom-select {
+  width: 100%;
+  height: 50px;
+  border: 2px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+}
+.custom-select::after {
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: var(--select-arrow);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  justify-self: end;
+}
+select,
+.select:after {
+  grid-area: select;
+}
+
+input, .custom-select{
+  margin-bottom: 1rem;
+}
+
+input[type="submit"]{
+  color: white;
+  background-color: var(--purple);
+}
+label, legend{
+font-weight: bold;
+}
+fieldset label{
+  font-weight: normal;
+}
+
+/*--------------Medium-----------------*/
+
+@media screen and (min-width: 480px){
+  header {
+    grid-template-columns: 25% 75%;
+  }
+  header a{display: grid;
+    grid-column: 1;
+    grid-row: 1 / 3;
+    justify-content: end;
+
+  }
+  header img {max-width: 100%;
+  }
+
+  h1{
+    grid-column: 2 / 4;
+  }
+  header p{
+    padding-top: .5rem;
+    grid-column: 2 / 3;
+  }
+  nav input, nav label{
+    display:none
+  }
+  nav {
+    grid-column: 1/5;
+  }
+  #menu {display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+  }
+
+    #menuToggle a:hover {
+      background-color: var(--yellow);
+    }
+    #menu .active {
+      background-color: var(--yellow);
+    }
+
+    #menuToggle a{
+    text-decoration:none;
+    text-align: center;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    margin: 1rem .5rem 0rem .5rem;
+    background-color: var(--white);
+    color: var(--black);
+    font-weight: bold;
+  }
+
+  #img-grid{
+    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #img-grid img{
+    padding: .5rem;
+  }   
+  #img-grid picture{
+  grid-column: 1/3;
+  padding-bottom: .5rem;
+  }
+  #testimonials div{
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  #testimonials section{
+    width: 325px;
+    height: 325px;
+  }
+
+  #plan section{
+    width: 325px;
+    height: 325px;
+  }
+
+  #about section{
+    max-width: 22%;
+    text-align: center;
+    margin: .25rem;
+    }
+
+
+  fieldset{
+    display: grid;
+    grid-template-columns: 33% 33% 34%;
+    margin-bottom: 1rem;
+  }
+  #selects{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 1rem;
+  }
+  #selects label, #selects div{
+  grid-column: 1/3;
+  }
+  input[type="submit"]{
+    color: white;
+    background-color: var(--purple);
+    max-width: 250px;
+    grid-column: 2;
+    justify-self: end;
+  }
+  footer {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+}
+
+/*--------------Large-----------------*/
+
+@media screen and (min-width: 990px){
+  header {
+    grid-template-columns: 15% 85%;
+  }
+  header a {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    justify-self: start;
+  }
+  header img{
+    min-width: 100px;
+  }
+  header p{
+    padding-top: 0rem;
+    justify-self: start;
+  }
+
+  nav {
+    grid-column: 2/3;
+    grid-row: 1/-1;
+    margin: 0;
+    justify-items: end;
+  }
+  #menuToggle a{
+    padding: .5rem 1rem .5rem 1rem;
+    margin: 0pt;
+    margin-left: .5rem;
+    font-size: 10pt;
+  }
+
+  #intro{
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #intro h2, #intro p{
+grid-column: 1/2;
+  }
+  #img-grid{
+    grid-column: 2/3;
+    grid-row: 1/4;
+  }
+
+  #testimonials{
+    padding: 3rem;
+  }
+  #testimonials section{
+    width: 20%;
+    height: 20%;
+    margin: 2rem 1rem 5rem 1rem
+  }
+  #testimonials img{
+    width: 50%;
+  }
+  #plan{
+    padding: 3rem;
+  }
+  #plan section{
+    width: 20%;
+    height: 90%;
+    margin-bottom: 2rem;
+  }
+
+  #plan img{
+    width: 40%;
+    align-self: center;
+  }
+#about{
+  padding: 3rem;
+}
+#contact{
+  padding: 3rem;
+}
+  form{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  form div{
+    padding: .5rem;
+  }
+  footer{
+    grid-template-columns: 60% 20% 20%;
+    text-align: left;    
+  }
+}
