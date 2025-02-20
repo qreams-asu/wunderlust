@@ -257,8 +257,6 @@ header {
     display: grid;
     grid-template-columns: 33% 33% 33%;
     padding: 1.25rem;
-    overflow: hidden;
-
 }
 header img {max-width: 150px;
   }
